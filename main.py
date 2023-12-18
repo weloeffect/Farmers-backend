@@ -27,25 +27,25 @@ class Message(Resource):
     def get(self, user_id):
         # return {"userM": userMessages[f'{user_id}'] }, 200
         return{
-            'user messages' : UsersentMessages[user_id]
+            'messages' : UsersentMessages[user_id]
         }, 201
     
     def post(self, user_id):
         # args = messages_post_args.parse_args()
-        # UsersentMessages[user_id] = args['message']
+        # UsersentMessages[user_id] = args['message']``
         UsersentMessages[user_id] = request.json['message']
         # return {
         #     'message' : args['message'],
         #     'messageID': args['message_id'],
         #     'userID': f'{user_id}'
         #         }, 200
-        # return 'messages sent sucessfully to backend', 201
+        return 'messages sent sucessfully to backend', 201
         # return {
         #     f'user messages with id {user_id}': args['messages']
         # }
-        return {
-           "user sent messages":  UsersentMessages[user_id]
-        }, 201
+        # return {
+        #    "user sent messages":  UsersentMessages[user_id]
+        # }, 201
         
 
 # api.add_resource(HelloWorld, '/hello')
